@@ -8,31 +8,38 @@
 
 void binary_tree_delete(binary_tree_t *tree)
 {
-	if (tree == NULL)
-		return;
-	if (tree->left != NULL)
-		binary_tree_delete(tree->left);
-	if (tree->right != NULL)
-		binary_tree_delete(tree->right);
-	if (tree->left == NULL)
+	if (tree != NULL)
 	{
-		if (tree->right == NULL)
+
+		if (tree->left != NULL)
+		{
+			binary_tree_delete(tree->left);
+		}
+		if (tree->right != NULL)
+		{
+			binary_tree_delete(tree->right);
+		}
+		if (tree->parent == NULL)
+		{
+			printf("Deleted node: %d\n", tree->n);
+			free(tree);
+			return;
+		}
+		if (tree->parent->left)
 		{
 			tree->parent->left = NULL;
-			tree->parent = NULL;
+			/*tree->parent = NULL;*/
+			printf("Deleted node: %d\n", tree->n);
 			free(tree);
 			return;
 		}
-	}
-	if (tree->right == NULL)
-	{
-		if (tree->left == NULL)
+		else if (tree->parent->right)
 		{
 			tree->parent->right = NULL;
-			tree->parent = NULL;
+			/*tree->parent = NULL;*/
+			printf("Deleted node: %d\n", tree->n);
 			free(tree);
 			return;
 		}
 	}
-	free(tree);
 }
