@@ -38,7 +38,7 @@ void size_tracer(const binary_tree_t *tree,
  * binary_tree_size - function to return size of a tree
  * @tree: pointer to node
  *
- * Return: dept of node (size_t)
+ * Return: number of nodes in a tree
  */
 size_t binary_tree_size(const binary_tree_t *tree)
 {

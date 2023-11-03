@@ -21,23 +21,18 @@ void binary_tree_delete(binary_tree_t *tree)
 		}
 		if (tree->parent == NULL)
 		{
-			printf("Deleted node: %d\n", tree->n);
 			free(tree);
 			return;
 		}
 		if (tree->parent->left)
 		{
 			tree->parent->left = NULL;
-			/*tree->parent = NULL;*/
-			printf("Deleted node: %d\n", tree->n);
 			free(tree);
 			return;
 		}
 		else if (tree->parent->right)
 		{
 			tree->parent->right = NULL;
-			/*tree->parent = NULL;*/
-			printf("Deleted node: %d\n", tree->n);
 			free(tree);
 			return;
 		}

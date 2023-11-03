@@ -29,23 +29,17 @@ void state_tracer(const binary_tree_t *tree,
 	if ((cursor->left == NULL && cursor->right == NULL) ||
 		(cursor->left != NULL && cursor->right != NULL))
 	{
-		/* if current node has 0 or 2 child nodes keep state on*/
-		*state *= 1;
+		/*Checks if current node has 0 or 2 children*/
+		*state *= 1; /* maintains state as valid*/
 	}
 	else
-	{
-		/* if current node has 1 child nodes toggles state to off*/
-		*state *= 0;
-	}
+		*state *= 0; /* toggle off state if condition fails*/
 	if (cursor == tree)
-	{
-		/* Terminate at root node*/
-		return;
-	}
+		return; /* Terminate at root node*/
 	if (cursor->parent->left)
 		return; /* Escape left child node*/
 	else if (cursor->parent->right)
-		return; /* Escape left child node*/
+		return; /* Escape right child node*/
 }
 
 /**

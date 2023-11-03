@@ -12,13 +12,13 @@ binary_tree_t *binary_tree_uncle(binary_tree_t *node)
 		return (NULL);
 	if (node->parent == NULL)
 		return (NULL);
-    if (node->parent->parent == NULL)
+	if (node->parent->parent == NULL)
 		return (NULL);
-	if (node->parent->parent->left != node->parent && 
-        node->parent->parent->left != NULL)
+	if (node->parent->parent->left != node->parent &&
+		node->parent->parent->left != NULL)
 		return (node->parent->parent->left);
-	if (node->parent->parent->right != node->parent && 
-        node->parent->parent->right != NULL)
+	if (node->parent->parent->right != node->parent &&
+		node->parent->parent->right != NULL)
 		return (node->parent->parent->right);
 	return (NULL);
 }
